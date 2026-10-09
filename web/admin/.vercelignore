@@ -1,0 +1,11 @@
+node_modules
+android
+android-capacitor-backup
+.npm-cache
+.artifacts
+.idea
+dist
+.git
+.github
+test-results
+boxitt logo

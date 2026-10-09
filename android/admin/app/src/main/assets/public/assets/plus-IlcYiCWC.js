@@ -1,0 +1,1 @@
+import{c as s}from"./index-CZsE4Zrr.js";const t=s("navigation",[["polygon",{points:"3 11 22 2 13 21 11 13 3 11",key:"1ltx0t"}]]),a=s("plus",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"M12 5v14",key:"s699le"}]]);export{t as N,a as P};

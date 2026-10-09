@@ -1,0 +1,1 @@
+import{d as r}from"./index-C3xaUe0p.js";const t={async uploadFile(t,o,e){const{data:a,error:s}=await r.storage.from(t).upload(o,e,{upsert:!0,cacheControl:"3600",contentType:e.type});if(s)throw s;const{data:{publicUrl:c}}=r.storage.from(t).getPublicUrl(a.path);return c},async deleteFile(t,o){const{error:e}=await r.storage.from(t).remove([o]);if(e)throw e}};export{t as s};

@@ -1,0 +1,29 @@
+# Credentials and secrets
+client_secret*.json
+*.pem
+*.key
+google-services.json
+local.properties
+
+# Dependencies and build
+node_modules/
+dist/
+build/
+.gradle/
+.env*
+.DS_Store
+.cxx/
+.navigation/
+captures/
+
+# IDE & Tooling
+.idea/
+*.iml
+.artifacts/
+.vercel/
+.npm-cache/
+*.apk
+*.aab
+*.keystore
+*.jks
+

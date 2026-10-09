@@ -1,0 +1,179 @@
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+
+  /* Responsive Scaling Variables */
+  --fluid-spacing: clamp(1rem, 3vw, 2.5rem);
+  --fluid-padding: clamp(1.5rem, 5vw, 3.5rem);
+  --fluid-gap: clamp(0.75rem, 2.5vw, 2rem);
+  --fluid-radius: clamp(1rem, 3vw, 2.5rem);
+
+  --font-hero: clamp(2rem, 8vw, 5rem);
+  --font-title: clamp(1.5rem, 5vw, 3rem);
+  --font-card-title: clamp(1.1rem, 3vw, 1.75rem);
+  --font-base: clamp(0.875rem, 1.5vw, 1.1rem);
+  --font-small: clamp(0.7rem, 1vw, 0.9rem);
+
+  --btn-height: clamp(3rem, 6vw, 4rem);
+  --icon-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+.theme-transition,
+.theme-transition * {
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease, box-shadow 300ms ease, transform 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Button Active State */
+button:active {
+  transform: scale(0.97) !important;
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* GLOBAL SCROLLBAR VISIBILITY FIX */
+html {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  font-size: clamp(14px, 1.2vw + 10px, 18px);
+}
+
+/* Global Dynamic Text Helpers */
+.dynamic-text {
+  word-break: break-all !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+  line-height: 1.2 !important;
+  max-width: 100% !important;
+}
+
+body, #root {
+  overflow: visible !important;
+  overflow-y: visible !important;
+  height: auto !important;
+}
+
+/* Disable internal scrollbars on all page-level and full-screen wrappers */
+.min-h-screen,
+[class*="min-h-screen"] {
+  overflow: visible !important;
+  overflow-y: visible !important;
+  height: auto !important;
+}
+
+
+@media (max-width: 768px) {
+  .py-32, .py-24, .py-20, .py-16 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .py-10, .py-8 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+  .px-10, .px-8, .px-6 {
+    padding-left: 4vw !important;
+    padding-right: 4vw !important;
+  }
+
+  /* 4. Dynamic Spacing Compression */
+  .gap-16, .gap-12, .gap-10 { gap: 1rem !important; }
+  .gap-8, .gap-6 { gap: 0.75rem !important; }
+  .gap-4 { gap: 0.5rem !important; }
+
+  /* 5. Typography Scaling */
+  .text-7xl { font-size: 2.25rem !important; }
+  .text-6xl { font-size: 2rem !important; }
+  .text-5xl { font-size: 1.75rem !important; }
+  .text-4xl { font-size: 1.5rem !important; }
+  .text-3xl { font-size: 1.25rem !important; }
+  .text-2xl { font-size: 1.1rem !important; }
+  .text-xl { font-size: 1rem !important; }
+  .text-lg { font-size: 0.95rem !important; }
+
+  /* 6. Utility Overrides for Mobile */
+  .h-14 { height: 3.25rem !important; }
+  .w-14 { width: 3.25rem !important; }
+  .m-5 { margin: 1rem !important; }
+
+  /* 9. Bottom Nav Native Integration - pinned to bottom for better reach */
+  .fixed.bottom-6 {
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    border-radius: 1.25rem 1.25rem 0 0 !important;
+    padding-bottom: env(safe-area-inset-bottom, 1rem) !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    padding-top: 0.5rem !important;
+    background-color: rgba(var(--color-background-secondary-rgb), 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    border-top: 1px solid rgba(var(--color-border-rgb), 0.3) !important;
+  }
+
+  /* Adjust buttons for better thumb interaction, excluding small buttons/dots */
+  button:not(.carousel-dot):not([class*="p-1"]):not([class*="p-2"]):not([class*="p-3"]):not([class*="p-["]):not([class*="h-1"]):not([class*="h-2"]):not([class*="h-3"]):not([class*="h-4"]):not([class*="h-5"]):not([class*="h-6"]):not([class*="h-8"]):not([class*="h-10"]),
+  .btn {
+    min-height: 3rem;
+  }
+
+  /* Ensure carousel dots and small controls override min-height */
+  button.carousel-dot,
+  button.rounded-full:not(.w-12):not(.w-14) {
+    min-height: unset !important;
+  }
+}
+
+/* Disable hover effects on mobile to prevent "sticky" hover states and accidental clicks */
+@media (hover: none) {
+
+  .motion-hover-effect,
+  [class*="hover:"] {
+    transition: none !important;
+  }
+
+  /* Prevent Framer Motion from scaling on tap if it feels laggy */
+  /* .while-tap-scale-fix { transform: none !important; } */
+}

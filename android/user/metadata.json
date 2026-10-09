@@ -1,0 +1,7 @@
+{
+  "name": "booking app",
+  "description": "Professional sports turf slot booking application with QR validation and admin management.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
